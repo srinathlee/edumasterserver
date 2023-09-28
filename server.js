@@ -12,11 +12,11 @@ dotenv.config({path:"config.env"})
 
 // handling the uncaught error______________________
 
-// process.on("uncaughtException",(err)=>{
-//     console.log(`Error ${err.message}`)
-//     console.log("shuting down the server.............................")
-//     process.exit(1);
-// })
+process.on("uncaughtException",(err)=>{
+    console.log(`Error ${err.message}`)
+    console.log("shuting down the server.............................")
+    process.exit(1);
+})
 
 
 
@@ -39,10 +39,10 @@ const server=app.listen(5080,()=>{console.log(`app is running at port ${process.
 
 // unhandled promise rejection_________________________
 
-// process.on("unhandledRejection",(err)=>{
-//     console.log(`Error ${err.message}`)
-//     console.log("shouting down the server.....................")
-//    server.close(()=>{
-//     process.exit(1)
-//    })
-// })
+process.on("unhandledRejection",(err)=>{
+    console.log(`Error ${err.message}`)
+    console.log("shouting down the server.....................")
+   server.close(()=>{
+    process.exit(1)
+   })
+})
