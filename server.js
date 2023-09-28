@@ -1,7 +1,14 @@
 import app from "./app.js";
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 import OpenAI from "openai";
 import DatabaseConnection from './database/db_connect.js'
+import {AbortController} from "node-abort-controller";
+
+global.AbortController = AbortController;
+
+// EVN config____________________________________________
+dotenv.config({path:"config.env"})
+
 
 // handling the uncaught error______________________
 
@@ -13,8 +20,6 @@ process.on("uncaughtException",(err)=>{
 
 
 
-// EVN config_________________________________________
-dotenv.config({path:"./config.env"})
 
 
 // database connection________________________________
