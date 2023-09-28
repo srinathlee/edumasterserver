@@ -21,8 +21,9 @@ DatabaseConnection()
 
 // openai connection__________________________________
 export const openai = new OpenAI({
-    apiKey:"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"
+    apiKey:process.env.OPENAI_API_KEY
 });
+
 
 
 
