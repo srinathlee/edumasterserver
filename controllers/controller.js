@@ -2,8 +2,6 @@ import { openai } from "../server.js"
 import Story from "../models/model.js"
 import ErrorHandler from '../utils/errorhandler.js'
 import AsyncError from "../middleware/asyncError.js"
-// import {configuration,openAIApi} from 'openai'
-
 
 export const GetStory=
 AsyncError( async(req,res)=>{
@@ -12,7 +10,7 @@ AsyncError( async(req,res)=>{
   console.log(question)
 
     const chatCompletion = await openai.chat.completions.create({
-        messages: [{ role: "user", content: `give me a story about ${question}` }],
+        messages: [{ role: "user", content: `give me a story about ${question}`}],
         model: "gpt-3.5-turbo"})
      const story=chatCompletion.choices[0].message.content
 

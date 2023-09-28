@@ -14,7 +14,8 @@ process.on("uncaughtException",(err)=>{
 
 
 // EVN config_________________________________________
-dotenv.config({path:"./config/config.env"})
+dotenv.config({path:"./config.env"})
+
 
 // database connection________________________________
 DatabaseConnection()
