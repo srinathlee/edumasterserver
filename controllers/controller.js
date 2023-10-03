@@ -7,7 +7,6 @@ export const GetStory=
 AsyncError( async(req,res)=>{
 
   const question=req.body.question
-  console.log(question)
 
     const chatCompletion = await openai.chat.completions.create({
         messages: [{ role: "user", content: `give me a story about ${question}`}],
@@ -21,7 +20,6 @@ AsyncError( async(req,res)=>{
   export const GetAllStories=AsyncError(
     async(req,res,next)=>{
       const data=await Story.find()
-      // console.log(data)
       res.status(201).send({success:true,data})
      }
   )
@@ -42,7 +40,6 @@ AsyncError( async(req,res)=>{
   export const PostStory=AsyncError(async(req,res,next)=>{
 
      const {question,story}=req.body
-     console.log(question)
      const data={question,story}
      const response=await Story.create(data)
       res.status(200).send({success:true,message:"saved successfully"})  
